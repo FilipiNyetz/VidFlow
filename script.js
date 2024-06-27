@@ -58,33 +58,18 @@ function filtrarCategorias(event, categoria) {
 
     videos.forEach(video => {
         const categoriaElement = video.querySelector(".categoria-video");
-        if (categoriaElement) {
+        if (categoria === 'Tudo') {
+            video.style.display = "block"; // Mostra todos os vídeos
+        } else if (categoriaElement) {
             let categoriaVideo = categoriaElement.textContent;
 
             if (!categoriaVideo.includes(categoria)) {
-                video.style.display = "none";
+                video.style.display = "none"; // Esconde os vídeos que não correspondem à categoria
             } else {
-                video.style.display = "block";
+                video.style.display = "block"; // Mostra os vídeos que correspondem à categoria
             }
         }
     });
-}
-
-function arrastarCarrossel() {
-    console.log('Função arrastarCarrossel chamada');
-    const container = document.querySelector('.superior__secao__container-wrapper');
-    container.scrollBy({
-        left: 200, // Ajuste este valor conforme necessário para controlar a distância do scroll
-        behavior: 'smooth'
-    })
-        // if (container) {
-        //     container.scrollBy({
-        //         left: 200, // Ajuste este valor conforme necessário para controlar a distância do scroll
-        //         behavior: 'smooth'
-        //     });
-        // } else {
-        //     console.error('Elemento .superior__secao__buttons-wrapper não encontrado');
-        // }
 }
 
 
